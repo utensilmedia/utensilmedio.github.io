@@ -1,0 +1,204 @@
+:root {
+  --bg: #05070B;
+  --text: #E7EDF5;
+  --muted: rgba(231,237,245,0.65);
+
+  --accent: #C08B3F;
+  --accent2: #3AA6A1;
+
+  --panel: rgba(255,255,255,0.04);
+  --border: rgba(255,255,255,0.08);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: system-ui, Arial;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+}
+
+/* HERO */
+.hero {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.fog {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 30% 40%, rgba(58,166,161,0.15), transparent 60%),
+    radial-gradient(circle at 70% 60%, rgba(192,139,63,0.12), transparent 55%);
+  animation: drift 12s infinite ease-in-out;
+}
+
+@keyframes drift {
+  0%,100% { transform: translate(-10px,-10px); }
+  50% { transform: translate(10px,15px); }
+}
+
+.vignette {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle, transparent 30%, rgba(0,0,0,0.85) 80%);
+}
+
+.grain {
+  position: absolute;
+  inset: 0;
+  opacity: 0.07;
+  background-image: url("https://grainy-gradients.vercel.app/noise.svg");
+}
+
+.hero-content {
+  position: relative;
+  max-width: 900px;
+  z-index: 2;
+  padding: 20px;
+}
+
+/* BRAND */
+.studio {
+  letter-spacing: 0.4em;
+  font-size: 0.8rem;
+  color: var(--muted);
+  margin-bottom: 20px;
+}
+
+/* LOGO */
+.logo {
+  font-size: 4rem;
+  letter-spacing: 0.35em;
+  font-weight: 600;
+  background: linear-gradient(90deg,#6f7b86,#e7edf5,#8a949e);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.mark {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  margin: 0 10px;
+  transform: rotate(45deg);
+  background: radial-gradient(circle,var(--accent),transparent 70%);
+  box-shadow: 0 0 18px rgba(192,139,63,0.4);
+}
+
+.subtitle {
+  margin-top: 10px;
+  color: var(--muted);
+}
+
+.tagline {
+  margin-top: 10px;
+  font-style: italic;
+  opacity: 0.8;
+}
+
+/* CTA */
+.cta {
+  margin-top: 40px;
+}
+
+.cta a {
+  display: inline-block;
+  margin: 10px;
+  padding: 12px 20px;
+  border: 1px solid var(--border);
+  color: var(--text);
+  text-decoration: none;
+  transition: 0.2s;
+}
+
+.cta a:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  transform: translateY(-2px);
+}
+
+/* SIGNATURE */
+.signature {
+  margin-top: 50px;
+  color: var(--muted);
+  letter-spacing: 0.3em;
+}
+
+/* SECTIONS */
+.section {
+  padding: 120px 20px;
+  max-width: 1100px;
+  margin: auto;
+}
+
+.dark {
+  background: linear-gradient(180deg,#05070B,#070B12);
+}
+
+h2 {
+  border-left: 3px solid var(--accent);
+  padding-left: 12px;
+  margin-bottom: 20px;
+}
+
+/* LAYOUT */
+.split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: center;
+}
+
+.panel {
+  height: 280px;
+  background:
+    radial-gradient(circle, rgba(58,166,161,0.2), transparent 60%),
+    radial-gradient(circle, rgba(192,139,63,0.15), transparent 60%);
+  border: 1px solid var(--border);
+}
+
+/* GRID */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+  gap: 20px;
+}
+
+.card {
+  padding: 20px;
+  border: 1px solid var(--border);
+  background: var(--panel);
+}
+
+.card p {
+  color: var(--muted);
+}
+
+/* FOOTER */
+footer {
+  text-align: center;
+  padding: 50px;
+  border-top: 1px solid var(--border);
+  color: var(--muted);
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+  .logo {
+    font-size: 2.6rem;
+  }
+
+  .split {
+    grid-template-columns: 1fr;
+  }
+}
